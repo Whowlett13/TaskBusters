@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "express": "^4.18.2",
+    "handlebars": "^4.7.7",
+    "json": "^11.0.0",
+    "mysql2": "^3.3.1",
+    "node": "^20.1.0",
+    "sequelize": "^6.31.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "taskbusters",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Whowlett13/TaskBusters.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Whowlett13/TaskBusters/issues"
+  },
+  "homepage": "https://github.com/Whowlett13/TaskBusters#readme"
+}
