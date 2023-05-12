@@ -6,5 +6,5 @@ const jobTitle = require("./job-title.js");
 router.use("/date", dateRoutes);
 router.use("/hour", hourRoutes);
 router.use("/duration", durationRoutes);
-router.use("/jobtitle", jobtitleRoutes);
+router.use("/job-title", job - titleRoutes);
 module.exports = router;
