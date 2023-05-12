@@ -1,0 +1,10 @@
+const router = require("express").Router();
+const dateRoutes = require("./date-routes.js");
+const hourRoutes = require("./hour-routes.js");
+const durationRoutes = require("./duration-routes.js");
+const jobTitle = require("./job-title.js");
+router.use("/date", dateRoutes);
+router.use("/hour", hourRoutes);
+router.use("/duration", durationRoutes);
+router.use("/jobtitle", jobtitleRoutes);
+module.exports = router;
