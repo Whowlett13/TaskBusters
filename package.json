@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/Whowlett13/TaskBusters/issues"
   },
-  "homepage": "https://github.com/Whowlett13/TaskBusters#readme"
+  "homepage": "https://github.com/Whowlett13/TaskBusters#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  }
 }
