@@ -16,7 +16,7 @@ Job_Apply.belongsTo(Job_Seeker, {
     foreignKey: 'job_seeker_id'
 });
 
-  Job_Apply.belongsTo(Jobs, {
+Job_Apply.belongsTo(Jobs, {
     foreignKey: 'job_id'
 });
 
