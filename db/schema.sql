@@ -18,3 +18,13 @@ CREATE TABLE jobs (
     duration_hours INT,
     PRIMARY KEY (id)
 );
+
+-- Jobs Seeker
+CREATE TABLE job_poster (
+    id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    contact_number INT NOT NULL,
+    FOREIGN KEY (job_id) REFERENCES jobs(id)
+    PRIMARY KEY (id)
+);
