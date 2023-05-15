@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Jobs extends Model {}
+class Job_Apply extends Model {}
 
-Jobs.init(
+Job_Apply.init(
   {
     id: {
         type: DataTypes.INTEGER,
@@ -11,11 +11,11 @@ Jobs.init(
         allowNull: false,
         autoIncrement: true
       },
-      job_poster_id: {
+      job_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'job_poster',
+          model: 'Jobs',
           key: 'id'
         }
       },
@@ -23,33 +23,12 @@ Jobs.init(
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'job_seeker',
+          model: 'Job_Seeker',
           key: 'id'
         }
       },
-      job_title: {
+      comment_text: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [1]
-        }
-      },
-      job_description: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [1]
-        }
-      },
-      job_location: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [1]
-        }
-      },
-      job_date: {
-        type: DataTypes.DATE,
         allowNull: false,
         validate: {
             len: [1]
@@ -60,8 +39,8 @@ Jobs.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Jobs'
+    modelName: 'Job_Apply'
   }
 );
 
-module.exports = Jobs;
+module.exports = Job_Apply;
