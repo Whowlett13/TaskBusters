@@ -24,20 +24,17 @@ Job_Seeker.hasMany(Job_Apply, {
     foreignKey: 'job_seeker_id'
 });
 
-Job_Seeker.hasMany(Job_Apply, {
-  foreignKey: 'job_seeker_id'
-});
-
 Job_Poster.hasMany(Jobs, {
   foreignKey: 'job_poster_id'
 });
 
 Jobs.hasOne(Job_Poster, {
-  foreignKey: 'job_id'
+  foreignKey: 'job_poster_id'
 })
 
-Jobs.hasMany(Job_Apply, {
-    foreignKey: 'job_id'
+Jobs.hasMany(Job_Seeker, {
+    foreignKey: 'job_seeker_id'
 });
+
 
 module.exports = {Job_Apply, Job_Poster, Job_Seeker, Jobs};

@@ -61,10 +61,6 @@ Job_Seeker.init(
         date_of_birth: {
           type: DataTypes.DATE,
           allowNull: false
-        },
-        contact_number: {
-          type: DataTypes.NUMBER,
-          allowNull: false
         }
       },
   {
