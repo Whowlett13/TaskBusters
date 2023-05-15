@@ -28,3 +28,14 @@ CREATE TABLE job_poster (
     FOREIGN KEY (job_id) REFERENCES jobs(id)
     PRIMARY KEY (id)
 );
+
+
+-- Jobs Seeker
+CREATE TABLE job_seeker(
+    id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    contact_number INT NOT NULL,
+    FOREIGN KEY (position_applied) REFERENCES jobs(id)
+    PRIMARY KEY (id)
+);
