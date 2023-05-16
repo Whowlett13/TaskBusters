@@ -20,35 +20,31 @@ User.init(
           primaryKey: true,
           autoIncrement: true
         },
+        first_name: {
+          type: DataTypes.STRING,
+          allowNull: false
+        },
+        last_name: {
+          type: DataTypes.STRING,
+          allowNull: false
+        },
         // define a username column
         username: {
           type: DataTypes.STRING,
           allowNull: false
         },
-        // define a password column
-        password: {
-          type: DataTypes.STRING,
-          allowNull: false,
-          validate: {
-            len: [4]
-          }
-        },
-        first_name: {
-          type: DataTypes.STRING,
-          allowNull: true
-        },
-        last_name: {
-          type: DataTypes.STRING,
-          allowNull: true
+        linkedin: {
+            type: DataTypes.STRING,
+            allowNull: true
         },
         contact_number: {
-          type: DataTypes.NUMBER,
-          allowNull: true
+            type: DataTypes.NUMBER,
+            allowNull: true
         },
         date_of_birth: {
           type: DataTypes.DATE,
           allowNull: true
-        },
+      },
         // define an email column
         email: {
           type: DataTypes.STRING,
@@ -58,9 +54,13 @@ User.init(
             isEmail: true
           }
         },
-        linkedin: {
+        // define a password column
+        password: {
           type: DataTypes.STRING,
-          allowNull: true
+          allowNull: false,
+          validate: {
+            len: [4]
+          }
         }
       },
   {
