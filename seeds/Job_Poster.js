@@ -1,4 +1,4 @@
-const { Job_Poster } = require("../models");
+const { Job_Poster } = require("../Models");
 const Job_PosterData = [
   {
     username: "whowlett13",

@@ -1,13 +1,12 @@
-const { Jobs } = require("../models");
+const { Jobs } = require("../Models");
 const JobsData = [
   {
-    job_poster_id: 1,
-    job_seeker_id: 1,
-    job_title: "painting",
-    job_description: "paint my house",
+    user_id: 1,
+    job_title: "painter",
+    job_description: "painting my house",
     job_location: "Ottawa",
-    job_date: "May 22nd",
-    hourly_rate: 20,
+    job_date: 2023 - 05 - 16,
+    hourly_wage: 20,
     job_duration: 20,
   },
 ];
