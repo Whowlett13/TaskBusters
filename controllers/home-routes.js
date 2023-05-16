@@ -2,34 +2,22 @@ const sequelize = require("../config/connection");
 const { Jobs, Job_Seeker, Job_Apply, Job_Poster } = require("../models");
 const router = require("express").Router();
 router.get("/", (req, res) => {
-  Job_Poster.findAll({
+  Jobs.findAll({
     attributes: [
       "id",
-      "username",
-      "password",
-      "email",
-      "first_name",
-      "last_name",
-      "contact_name",
-    ],
-    include: [
-      {
-        model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
-        include: {
-          model: User,
-          attributes: ["username"],
-        },
-      },
-      {
-        model: User,
-        attributes: ["username"],
-      },
+      "job_poster_id",
+      "job_seeker_id",
+      "job_title",
+      "job_description",
+      "job_location",
+      "job_date",
+      "hourly_wage",
+      "job_duration",
     ],
   })
-    .then((dbPostData) => {
-      const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render("homepage", { posts, loggedIn: req.session.loggedIn });
+    .then((dbJobsData) => {
+      const posts = dbJobsData.map((post) => post.get({ plain: true }));
+      res.render("jobview", { Jobs, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.log(err);
@@ -50,7 +38,7 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/post/:id", (req, res) => {
-  Post.findOne({
+  Job_Poster.findOne({
     where: {
       id: req.params.id,
     },
@@ -119,7 +107,5 @@ router.get("/posts-comments", (req, res) => {
       res.status(500).json(err);
     });
 });
-
-module.exports = router;
 
 module.exports = router;

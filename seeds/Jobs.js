@@ -7,6 +7,8 @@ const JobsData = [
     job_description: "paint my house",
     job_location: "Ottawa",
     job_date: "May 22nd",
+    hourly_rate: 20,
+    job_duration: 20,
   },
 ];
 
