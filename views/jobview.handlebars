@@ -1,5 +1,12 @@
 <body>
     <main class="flex items-center justify-center h-screen">
-        
+        <div>Job Title: {{job_title}}</div>
+        <div>Job Description: {{job_description}}</div>
+        <div>Job Location: {{job_location}}</div>
+        <div>Hourly Wage: {{hourly_wage}}</div>
+        <div>Job Duration: {{job_duration}}</div>
+        {{#if loggedIn}}
+        <div>Phone Number: {{phone_number}}</div>
+        {{/if}}
     </main>
 </body>
