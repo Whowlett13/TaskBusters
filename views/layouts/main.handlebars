@@ -9,6 +9,20 @@
 </head>
 
 <body>
+  <header>
+    <img src="../Images/Logo.png" class="flex items-center justify-center h-40">
+    <p class="text-4xl text-blue-700 underline">Welcome to Task Busters!</p>
+  </header>
+  {{#if loggedIn}}
+    <div class="grid grid-cols-6 gap-4">
+      <button type="button" class=" col-end-6 bg-red-500 w-40 text-gray-100 py-2 hover-bg-red-700 transition-colors">Logout</button>
+    </div>
+  {{else}}
+  <div class="grid grid-cols-6 gap-4">
+    <button type="button" class=" col-start-4 bg-blue-500 w-40 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Login</button>
+    <button type="button" class=" col-end-6 bg-green-500 w-40 text-gray-100 py-2 hover-bg-green-700 transition-colors">Signup</button>
+  </div>
+  {{/if}}
   <main>
     {{{ body }}}
   </main>
