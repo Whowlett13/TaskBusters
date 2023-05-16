@@ -1,40 +1,30 @@
-const Job_Apply = require('./Job_Apply');
-const Job_Poster = require('./Job_Poster');
+const User = require('./User');
 const Jobs = require('./Jobs');
-const Job_Seeker = require('./Job_Seeker');
+const Job_Apply = require('./Job_Apply');
 
 
-Job_Poster.hasMany(Jobs, {
-    foreignKey: 'job_poster_id'
+User.hasMany(Jobs, {
+    foreignKey: 'user_id'
 });
 
-Jobs.belongsTo(Job_Poster, {
-    foreignKey: 'job_poster_id',
+Jobs.belongsTo(User, {
+    foreignKey: 'user_id',
 });
 
-Job_Apply.belongsTo(Job_Seeker, {
-    foreignKey: 'job_seeker_id'
-});
+Job_Apply.belongsTo(User, {
+    foreignKey: 'user_id'
+  });
 
 Job_Apply.belongsTo(Jobs, {
     foreignKey: 'job_id'
 });
 
-Job_Seeker.hasMany(Job_Apply, {
-    foreignKey: 'job_seeker_id'
+User.hasMany(Job_Apply, {
+    foreignKey: 'user_id'
 });
 
-Job_Poster.hasMany(Jobs, {
-  foreignKey: 'job_poster_id'
+Jobs.hasMany(Job_Apply, {
+    foreignKey: 'job_id'
 });
 
-Jobs.hasOne(Job_Poster, {
-  foreignKey: 'job_poster_id'
-})
-
-Jobs.hasMany(Job_Seeker, {
-    foreignKey: 'job_seeker_id'
-});
-
-
-module.exports = {Job_Apply, Job_Poster, Job_Seeker, Jobs};
+module.exports = {Jobs, Job_Apply, User};
