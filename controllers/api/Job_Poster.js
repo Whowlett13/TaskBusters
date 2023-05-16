@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Job_Poster } = require("../../models");
 const withAuth = require("../../utils/auth");
+//get all
 router.get("/", (req, res) => {
   Job_Poster.findOne({})
     .then((Job_Poster) => res.json(Job_Poster))
