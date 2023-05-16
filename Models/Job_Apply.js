@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
-const { Job_Apply } = require(".");
+// const { Job_Apply } = require(".");
 const sequelize = require("../config/connection");
 
 class Job_Apply extends Model {}
