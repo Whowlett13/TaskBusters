@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
+const { Job_Apply } = require('.');
 const sequelize = require('../config/connection');
 
 class Job_Apply extends Model {}
@@ -11,19 +12,19 @@ Job_Apply.init(
         allowNull: false,
         autoIncrement: true
       },
+      user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'user',
+          key: 'id'
+        }
+      },
       job_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
           model: 'Jobs',
-          key: 'id'
-        }
-      },
-      job_seeker_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'Job_Seeker',
           key: 'id'
         }
       },

@@ -2,8 +2,8 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
-// create our Job_Seeker model
-class Job_Seeker extends Model {
+// create our User model
+class User extends Model {
     // set up method to run on instance data (per user) to check password
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
@@ -11,7 +11,7 @@ class Job_Seeker extends Model {
 }
 
 // define table columns and configuration
-Job_Seeker.init(
+User.init(
     {
         // define an id column
         id: {
@@ -25,11 +25,7 @@ Job_Seeker.init(
           allowNull: false
         },
         last_name: {
-          type: DataTypes.TEXT,
-          allowNull: false
-        },
-        contact_number: {
-          type: DataTypes.NUMBER,
+          type: DataTypes.STRING,
           allowNull: false
         },
         // define a username column
@@ -37,14 +33,18 @@ Job_Seeker.init(
           type: DataTypes.STRING,
           allowNull: false
         },
-        // define a password column
-        password: {
-          type: DataTypes.STRING,
-          allowNull: false,
-          validate: {
-            len: [4]
-          }
+        linkedin: {
+            type: DataTypes.STRING,
+            allowNull: true
         },
+        contact_number: {
+            type: DataTypes.NUMBER,
+            allowNull: true
+        },
+        date_of_birth: {
+          type: DataTypes.DATE,
+          allowNull: true
+      },
         // define an email column
         email: {
           type: DataTypes.STRING,
@@ -54,13 +54,13 @@ Job_Seeker.init(
             isEmail: true
           }
         },
-        linkedin: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        date_of_birth: {
-          type: DataTypes.DATE,
-          allowNull: false
+        // define a password column
+        password: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          validate: {
+            len: [4]
+          }
         }
       },
   {
@@ -81,8 +81,8 @@ Job_Seeker.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Job_Seeker'
+    modelName: 'user'
   }
 );
 
-module.exports = Job_Seeker;
+module.exports = User;

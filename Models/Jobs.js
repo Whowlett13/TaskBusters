@@ -11,11 +11,11 @@ Jobs.init(
         allowNull: false,
         autoIncrement: true
       },
-      job_poster_id: {
+      user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'Job_Poster',
+          model: 'user',
           key: 'id'
         }
       },
