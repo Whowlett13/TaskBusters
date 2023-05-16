@@ -21,6 +21,25 @@ router.get("/", (req, res) => {
       res.status(500).json(err);
     });
 });
+router.post("/", withAuth, (req, res) => {
+  if (req.session) {
+    Jobs.create({
+      job_poster_id: req.body.job_poster_id,
+      job_seeker_id: req.body.job_seeker_id,
+      job_title: req.body.job_title,
+      job_description: req.body.job_description,
+      job_location: req.body.job_location,
+      job_date: req.body.job_date,
+      hourly_wage: req.body.hourly_wage,
+      job_duration: req.body.job_duration,
+    })
+      .then((dbCommentData) => res.json(dbCommentData))
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json(err);
+      });
+  }
+});
 
 router.delete("/:id", withAuth, (req, res) => {
   Jobs.destroy({
