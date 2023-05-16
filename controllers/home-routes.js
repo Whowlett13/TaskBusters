@@ -1,5 +1,5 @@
 const sequelize = require("../config/connection");
-const { Jobs, Job_Seeker, Job_Apply, Job_Poster } = require("../models");
+const { Jobs, User, Job_Apply, Job_Poster } = require("../models");
 const router = require("express").Router();
 router.get("/", (req, res) => {
   Jobs.findAll({
