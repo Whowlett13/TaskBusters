@@ -1,4 +1,5 @@
-const { Jobs } = require("../Models");
+const { Jobs } = require("../models");
+
 const JobsData = [
   {
     user_id: 1,
