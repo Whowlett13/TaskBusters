@@ -33,7 +33,7 @@ router.post("/", withAuth, (req, res) => {
       hourly_wage: req.body.hourly_wage,
       job_duration: req.body.job_duration,
     })
-      .then((dbCommentData) => res.json(dbCommentData))
+      .then((dbJobData) => res.json(dbJobData))
       .catch((err) => {
         console.log(err);
         res.status(400).json(err);
