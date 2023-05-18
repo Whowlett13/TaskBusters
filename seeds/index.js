@@ -1,11 +1,7 @@
 const sequelize = require("../config/connection");
-
+const seedsUser = require("./User");
 const seedJobApply = require("./Job_Apply");
-// const seedProducts = require("./product-seeds");
-// const seedTags = require("./tag-seeds");
-// const seedProductTags = require("./product-tag-seeds");
-
-// const sequelize = require("../config/connection");
+const seedJobs = require("./Jobs");
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
