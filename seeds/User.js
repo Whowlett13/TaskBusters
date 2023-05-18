@@ -18,5 +18,6 @@ const seedDatabase = async () => {
   User.bulkCreate(UserData);
   process.exit(0);
 };
+git;
 
 seedDatabase();
