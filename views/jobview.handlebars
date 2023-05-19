@@ -1,12 +1,10 @@
-<body>
-    <main class="grid grid-cols-6 gap-4 bg-white rounded shadow-sm">
-        <div>Job Title: {{job_title}}</div>
-        <div>Job Description: {{job_description}}</div>
-        <div>Job Location: {{job_location}}</div>
-        <div>Hourly Wage: {{hourly_wage}}</div>
-        <div>Job Duration: {{job_duration}}</div>
-        {{#if loggedIn}}
-        <div>Phone Number: {{phone_number}}</div>
-        {{/if}}
-    </main>
-</body>
+<section class="grid grid-cols-6 gap-4 bg-white rounded shadow-sm">
+     <div>Job Title: {{job_title}}</div>
+     <div>Job Description: {{job_description}}</div>
+     <div>Job Location: {{job_location}}</div>
+     <div>Hourly Wage: {{hourly_wage}}</div>
+     <div>Job Duration: {{job_duration}}</div>
+     {{#if loggedIn}}
+     <div>Phone Number: {{phone_number}}</div>
+     {{/if}}
+</section>
