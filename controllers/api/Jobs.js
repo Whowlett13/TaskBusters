@@ -40,6 +40,24 @@ router.post("/", withAuth, (req, res) => {
       });
   }
 });
+router.put("/:id", withAuth, (req, res) => {
+  Jobs.update({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbJobsData) => {
+      if (!dbJobsData) {
+        res.status(404).json({ message: "No Jobs found with this id" });
+        return;
+      }
+      res.json(dbJobsData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 router.delete("/:id", withAuth, (req, res) => {
   Jobs.destroy({
