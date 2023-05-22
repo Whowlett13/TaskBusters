@@ -14,7 +14,7 @@ const seedDatabase = async () => {
       comment_text: "I will do this job NOW",
     },
   ];
-  job_ApplyData.bulkCreate(Jobs_ApplyData);
+  job_ApplyData.bulkCreate(jobApplyData);
   process.exit(0);
 };
 seedDatabase();

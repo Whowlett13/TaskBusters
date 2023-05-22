@@ -12,14 +12,13 @@ router.get("/", (req, res) => {
     });
 });
 
-
 router.put("/:id", async (req, res) => {
   // update a Job by by its `id` value
   try {
     const JobApply = await Job_Apply.update(req.body, {
       where: { id: req.params.id },
     });
-    res.status(200).json(dbJobApply);
+    res.status(200).json(JobApply);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -35,7 +34,7 @@ router.delete("/:id", withAuth, (req, res) => {
         res.status(404).json({ message: "No Job_Apply found with this id" });
         return;
       }
-      res.json(dbJob_Apply);
+      res.json(Job_Apply);
     })
     .catch((err) => {
       console.log(err);
