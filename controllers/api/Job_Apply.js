@@ -4,13 +4,25 @@ const withAuth = require("../../utils/auth");
 
 //Find all jobs that you can apply to
 router.get("/", (req, res) => {
-  Job_Apply.findAll()
+  Job_Apply.findAll({
+    attributes: ["id", "user_id", "job_id", "comment_text"],
+  })
     .then((dbJob_Apply) => res.json(dbJob_Apply))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
+
+// router.post("/", withAuth, (req, res) => {
+//   if (req.session) {
+//     Job_Apply.create({
+//       user_id: req.body.user_id,
+//       job_id: req.body.job_id,
+//       comment_text: req.body.comment_text,
+//     });
+//   }
+// });
 
 router.put("/:id", async (req, res) => {
   // update a Job by by its `id` value
@@ -23,6 +35,7 @@ router.put("/:id", async (req, res) => {
     res.status(400).json(err);
   }
 });
+//Remove a job posting
 router.delete("/:id", withAuth, (req, res) => {
   Job_Apply.destroy({
     where: {
