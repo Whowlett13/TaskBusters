@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Job_Apply = require("../../models");
 const withAuth = require("../../utils/auth");
-
+// const sequelize = require("../config/connection");
 //Find all jobs that you can apply to
 // router
 //   .get("/", (req, res) => {
@@ -15,11 +15,11 @@ const withAuth = require("../../utils/auth");
 //     res.status(500).json(err);
 //   });
 
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
   Job_Apply.findAll({
     attributes: ["id", "user_id", "job_id", "comment_text"],
   })
-    .then((Job_Apply) => res.json(Job_Apply))
+    .then((dbJob_Apply) => res.json(dbJob_Apply))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
