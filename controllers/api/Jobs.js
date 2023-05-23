@@ -5,8 +5,7 @@ router.get("/", (req, res) => {
   Jobs.findAll({
     attributes: [
       "id",
-      "job_poster_id",
-      "job_seeker_id",
+      "user_id",
       "job_title",
       "job_description",
       "job_location",
@@ -15,7 +14,7 @@ router.get("/", (req, res) => {
       "job_duration",
     ],
   })
-    .then((dbJobs) => res.json(dbJobs.reverse()))
+    .then((Jobs) => res.json(Jobs.reverse()))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -24,8 +23,8 @@ router.get("/", (req, res) => {
 router.post("/", withAuth, (req, res) => {
   if (req.session) {
     Jobs.create({
-      job_poster_id: req.body.job_poster_id,
-      job_seeker_id: req.body.job_seeker_id,
+      // job_poster_id: req.body.job_poster_id,
+      user_id: req.body.user_id,
       job_title: req.body.job_title,
       job_description: req.body.job_description,
       job_location: req.body.job_location,
@@ -33,7 +32,7 @@ router.post("/", withAuth, (req, res) => {
       hourly_wage: req.body.hourly_wage,
       job_duration: req.body.job_duration,
     })
-      .then((dbJobData) => res.json(dbJobData))
+      .then((JobData) => res.json(JobData))
       .catch((err) => {
         console.log(err);
         res.status(400).json(err);
@@ -46,12 +45,12 @@ router.put("/:id", withAuth, (req, res) => {
       id: req.params.id,
     },
   })
-    .then((dbJobsData) => {
-      if (!dbJobsData) {
+    .then((JobData) => {
+      if (!JobData) {
         res.status(404).json({ message: "No Jobs found with this id" });
         return;
       }
-      res.json(dbJobsData);
+      res.json(JobData);
     })
     .catch((err) => {
       console.log(err);

@@ -1,6 +1,7 @@
-const User = require("../models/User");
+const User = require("../models");
 
 const sequelize = require("../config/connection");
+const User = require("../models");
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
   const UserData = [
@@ -15,9 +16,7 @@ const seedDatabase = async () => {
       password: "hello",
     },
   ];
-
   User.bulkCreate(UserData);
   process.exit(0);
 };
-
 seedDatabase();

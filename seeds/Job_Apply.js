@@ -14,7 +14,10 @@ const seedDatabase = async () => {
       comment_text: "I will do this job NOW",
     },
   ];
+<<<<<<< HEAD
 
+=======
+>>>>>>> c59279e9684c197461396e7f6484db16260ff904
   Job_Apply.bulkCreate(jobApplyData);
   process.exit(0);
 };
