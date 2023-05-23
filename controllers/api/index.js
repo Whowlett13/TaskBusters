@@ -6,6 +6,6 @@ router.use("/Job_Apply", Job_ApplyRoutes);
 router.use("/User", UserRoutes);
 router.use("/Jobs", JobsRoutes);
 router.use((res, req) => {
-  res.statusCode(404).end();
+  // res.statusCode(404).end();
 });
 module.exports = router;

@@ -3,11 +3,23 @@ const Job_Apply = require("../../models");
 const withAuth = require("../../utils/auth");
 
 //Find all jobs that you can apply to
+// router
+//   .get("/", (req, res) => {
+//     Job_Apply.findAll({
+//       attributes: ["id", "user_id", "job_id", "comment_text"],
+//     });
+//   })
+//   .then((Job_Apply) => res.json(Job_Apply.reverse()))
+//   .catch((err) => {
+//     console.log(err);
+//     res.status(500).json(err);
+//   });
+
 router.get("/", (req, res) => {
   Job_Apply.findAll({
     attributes: ["id", "user_id", "job_id", "comment_text"],
   })
-    .then((dbJob_Apply) => res.json(dbJob_Apply))
+    .then((Job_Apply) => res.json(Job_Apply))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -42,9 +54,9 @@ router.delete("/:id", withAuth, (req, res) => {
       id: req.params.id,
     },
   })
-    .then((dbJob_Apply) => {
-      if (!dbJob_Apply) {
-        res.status(404).json({ message: "No Job_Apply found with this id" });
+    .then((Job_Apply) => {
+      if (!Job_Apply) {
+        res.status(404).json({ message: "No Job found with this id" });
         return;
       }
       res.json(Job_Apply);
