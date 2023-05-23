@@ -5,8 +5,7 @@ router.get("/", (req, res) => {
   Jobs.findAll({
     attributes: [
       "id",
-      "job_poster_id",
-      "job_seeker_id",
+      "user_id",
       "job_title",
       "job_description",
       "job_location",
@@ -24,8 +23,8 @@ router.get("/", (req, res) => {
 router.post("/", withAuth, (req, res) => {
   if (req.session) {
     Jobs.create({
-      job_poster_id: req.body.job_poster_id,
-      job_seeker_id: req.body.job_seeker_id,
+      // job_poster_id: req.body.job_poster_id,
+      user_id: req.body.user_id,
       job_title: req.body.job_title,
       job_description: req.body.job_description,
       job_location: req.body.job_location,
