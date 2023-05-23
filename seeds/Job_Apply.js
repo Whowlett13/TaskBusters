@@ -1,20 +1,13 @@
-const sequelize = require("../config/connection");
-const Job_Apply = require("../models");
-const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
-  const jobApplyData = [
+const { Job_Apply } = require('../models');
+
+const commentData = [
     {
-      job_id: 1,
-      user_id: 1,
-      comment_text: "I will do this job",
-    },
-    {
-      job_id: 1,
-      user_id: 1,
-      comment_text: "I will do this job NOW",
-    },
-  ];
-  Job_Apply.bulkCreate(jobApplyData);
-  process.exit(0);
-};
-seedDatabase();
+        user_id: 1,
+        job_id: 1,
+        comment_text: "loremLabore aute sint ea tempor id dolor."
+    }
+]
+
+const seedComments = () => Job_Apply.bulkCreate(commentData);
+
+module.exports = seedComments;
