@@ -1,19 +1,21 @@
-const sequelize = require("../config/connection");
-const seedsUser = require("./User");
-const seedJobApply = require("./Job_Apply");
 const seedJobs = require("./Jobs");
+const seedUsers = require("./User");
+const seedComments = require("./Job_Apply");
+
+const sequelize = require("../config/connection");
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
   console.log("\n----- DATABASE SYNCED -----\n");
-<<<<<<< HEAD
-  // await seedsUser();
-  // await seedJobApply();
-  // await seedJobs();
-=======
-  // await seedJobApply();
->>>>>>> c59279e9684c197461396e7f6484db16260ff904
-  console.log("\n----- CATEGORIES SEEDED -----\n");
+
+  await seedUsers();
+  console.log("\n----- USERS SEEDED -----\n");
+
+  await seedJobs();
+  console.log("\n----- JOBS SEEDED -----\n");
+
+  await seedComments();
+  console.log("\n----- COMMENTS SEEDED -----\n");
 
   process.exit(0);
 };
