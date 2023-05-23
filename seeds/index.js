@@ -6,7 +6,9 @@ const seedJobs = require("./Jobs");
 const seedAll = async () => {
   await sequelize.sync({ force: true });
   console.log("\n----- DATABASE SYNCED -----\n");
-  await seedJobApply();
+  // await seedsUser();
+  // await seedJobApply();
+  // await seedJobs();
   console.log("\n----- CATEGORIES SEEDED -----\n");
 
   process.exit(0);
