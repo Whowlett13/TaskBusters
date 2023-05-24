@@ -10,12 +10,12 @@ Jobs.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-User.hasMany(Job_Apply, {
-  foreignKey: "user_id",
-});
+// User.hasMany(Job_Apply, {
+//   foreignKey: "user_id",
+// });
 
-Jobs.hasMany(Job_Apply, {
-  foreignKey: "job_id",
-});
+// Jobs.hasMany(Job_Apply, {
+//   foreignKey: "job_id",
+// });
 
 module.exports = { Jobs, User };

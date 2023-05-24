@@ -1,6 +1,6 @@
 const seedJobs = require("./Jobs");
 const seedUsers = require("./User");
-const seedComments = require("./Job_Apply");
+// const seedComments = require("./Job_Apply");
 
 const sequelize = require("../config/connection");
 
