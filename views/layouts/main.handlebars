@@ -11,31 +11,40 @@
 <body>
   <header>
 
-    {{!-- <img class="flex flex-wrap justify-center justify-items-center" src="../../Images/Logo.png" alt="Taskbusters logo"> --}}
-    <p class="flex flex-wrap justify-center justify-items-center font-serif text-6xl text-blue-700 underline">Welcome to Task Busters!</p>
+    {{!-- <img class="flex flex-wrap justify-center justify-items-center" src="../../Images/Logo.png"
+      alt="Taskbusters logo"> --}}
+    <p class="flex flex-wrap justify-center justify-items-center font-serif text-6xl text-blue-700 underline">Welcome to
+      Task Busters!</p>
   </header>
   <nav class="m-4">
-  {{#if loggedIn}}
+    {{#if loggedIn}}
     <div class="flex flex-wrap justify-between">
       <a href="/">
-      <button type="button" class="bg-blue-500 w-40 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Home  </button>
+        <button type="button" class="bg-blue-500 w-40 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Home
+        </button>
       </a>
-      <button type="button" class="bg-blue-500 w-40 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Create Job Post</button>
-      <button type="button" id="logout" class="bg-red-500 w-40 text-gray-100 py-2 hover-bg-red-700 transition-colors">Logout</button>
+      <a href="/newjob"><button type="button"
+          class="bg-blue-500 w-40 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Create Job Post</button></a>
+
+      <button type="button" id="logout"
+        class="bg-red-500 w-40 text-gray-100 py-2 hover-bg-red-700 transition-colors">Logout</button>
     </div>
-  {{else}}
-  <div class="flex flex-wrap justify-between">
-    <a href="/">
-    <button type="button" class="bg-blue-500 w-40 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Home</button>
-    </a>
-    <a href="/login">
-    <button type="button" class="bg-blue-500 w-40 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Login</button>
-    </a>
-    <a href="/signup">
-    <button type="button" class="bg-green-500 w-40 text-gray-100 py-2 hover-bg-green-700 transition-colors">Signup</button>
-    </a>
-  </div>
-  {{/if}}
+    {{else}}
+    <div class="flex flex-wrap justify-between">
+      <a href="/">
+        <button type="button"
+          class="bg-blue-500 w-40 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Home</button>
+      </a>
+      <a href="/login">
+        <button type="button"
+          class="bg-blue-500 w-40 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Login</button>
+      </a>
+      <a href="/signup">
+        <button type="button"
+          class="bg-green-500 w-40 text-gray-100 py-2 hover-bg-green-700 transition-colors">Signup</button>
+      </a>
+    </div>
+    {{/if}}
 
   </nav>
   <main>

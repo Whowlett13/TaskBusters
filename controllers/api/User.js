@@ -48,18 +48,19 @@ router.get("/:id", (req, res) => {
 //Create a new User
 router.post("/", (req, res) => {
   User.create({
-    username: req.body.username,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
     email: req.body.email,
     password: req.body.password,
   })
 
-    .then((dbUserData) => {
+    .then((UserData) => {
       req.session.save(() => {
-        req.session.user_id = dbUserData.id;
-        req.session.username = dbUserData.username;
+        req.session.user_id = UserData.id;
+        req.session.username = UserData.username;
         req.session.loggedIn = true;
 
-        res.json(dbUserData);
+        res.json(UserData);
       });
     })
     .catch((err) => {

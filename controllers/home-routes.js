@@ -1,21 +1,10 @@
 const sequelize = require("../config/connection");
 const { Jobs, User } = require("../models");
 const router = require("express").Router();
+
 //Display all jobs on homepage
 router.get("/", (req, res) => {
-  Jobs.findAll({
-    attributes: [
-      "id",
-      "job_poster_id",
-      "job_seeker_id",
-      "job_title",
-      "job_description",
-      "job_location",
-      "job_date",
-      "hourly_wage",
-      "job_duration",
-    ],
-  })
+  Jobs.findAll({})
     .then((JobsData) => {
       const Jobs = JobsData.map((post) => post.get({ plain: true }));
       res.render("homepage", { Jobs, loggedIn: req.session.loggedIn });
@@ -25,14 +14,19 @@ router.get("/", (req, res) => {
       res.status(500).json(err);
     });
 });
+router.get("/newjob", (req, res) => {
+  res.render("createjob");
+});
+
 //login redirect
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
     return;
   }
-  res.render("login");
+  // res.render("login");
 });
+
 //sign up redirect
 router.get("/signup", (req, res) => {
   res.render("signup");
@@ -59,7 +53,7 @@ router.get("/post/:id", (req, res) => {
       },
     ],
   })
-  //render jobview handlebars once job has been selected
+    //render jobview handlebars once job has been selected
     .then((PostData) => {
       if (!PostData) {
         res.status(404).json({ message: "No post found with this id" });
