@@ -28,15 +28,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // define a username column
-    // username: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
-    // linkedin: {
-    //   type: DataTypes.STRING,
-    //   allowNull: true,
-    // },
+    
     contact_number: {
       type: DataTypes.INTEGER,
       allowNull: true,

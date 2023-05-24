@@ -22,6 +22,9 @@ router.get("/", (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
+
 //create a new job
 router.post("/", withAuth, (req, res) => {
   if (req.session) {

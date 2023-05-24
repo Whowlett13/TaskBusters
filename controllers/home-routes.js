@@ -14,8 +14,14 @@ router.get("/", (req, res) => {
       res.status(500).json(err);
     });
 });
+//render create job handle bar
 router.get("/newjob", (req, res) => {
   res.render("createjob");
+});
+
+//render jobview handlebar
+router.get("/singlejob", (req, res)=>{
+  res.render("/jobview");
 });
 
 //login redirect
