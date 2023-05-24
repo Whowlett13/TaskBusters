@@ -10,21 +10,22 @@
 
 <body>
   <header>
-    <p class="flex flex-wrap justify-center justify-items-center text-4xl text-blue-700 underline">Welcome to Task Busters!</p>
+    {{!-- <img class="flex flex-wrap justify-center justify-items-center" src="../../Images/Logo.png" alt="Taskbusters logo"> --}}
+    <p class="flex flex-wrap justify-center justify-items-center font-serif text-6xl text-blue-700 underline">Welcome to Task Busters!</p>
   </header>
   <nav class="m-4">
   {{#if loggedIn}}
     <div class="flex flex-wrap justify-between">
       <a href="/">
-      <button type="button" class="bg-blue-500 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Home  </button>
+      <button type="button" class="bg-blue-500 w-40 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Home  </button>
       </a>
-      <button type="button" class="bg-blue-500 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Create Job Post</button>
-      <button type="button" class="bg-red-500 text-gray-100 py-2 hover-bg-red-700 transition-colors">Logout</button>
+      <button type="button" class="bg-blue-500 w-40 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Create Job Post</button>
+      <button type="button" id="logout" class="bg-red-500 w-40 text-gray-100 py-2 hover-bg-red-700 transition-colors">Logout</button>
     </div>
   {{else}}
   <div class="flex flex-wrap justify-between">
     <a href="/">
-    <button type="button" class="bg-blue-500 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Home</button>
+    <button type="button" class="bg-blue-500 w-40 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Home</button>
     </a>
     <a href="/login">
     <button type="button" class="bg-blue-500 w-40 text-gray-100 py-2 hover-bg-blue-700 transition-colors">Login</button>
