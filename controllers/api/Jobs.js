@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const { Jobs } = require("../../models");
 const withAuth = require("../../utils/auth");
+
+//find all job details
 router.get("/", (req, res) => {
   Jobs.findAll({
     attributes: [
@@ -20,6 +22,7 @@ router.get("/", (req, res) => {
       res.status(500).json(err);
     });
 });
+//create a new job
 router.post("/", withAuth, (req, res) => {
   if (req.session) {
     Jobs.create({
@@ -39,6 +42,7 @@ router.post("/", withAuth, (req, res) => {
       });
   }
 });
+//update a job
 router.put("/:id", withAuth, (req, res) => {
   Jobs.update({
     where: {
@@ -57,7 +61,7 @@ router.put("/:id", withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//delete a job
 router.delete("/:id", withAuth, (req, res) => {
   Jobs.destroy({
     where: {

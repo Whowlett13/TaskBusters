@@ -1,7 +1,9 @@
 const router = require("express").Router();
 const { User, Jobs } = require("../../models");
 const withAuth = require("../../utils/auth");
-router.get("/", (req, res) => {
+
+//User login
+router.get("/", withAuth, (req, res) => {
   User.findAll({
     attributes: { exclude: ["[password"] },
   })
@@ -11,7 +13,7 @@ router.get("/", (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//Find a User
 router.get("/:id", (req, res) => {
   User.findOne({
     attributes: { exclude: ["password"] },
@@ -28,19 +30,6 @@ router.get("/:id", (req, res) => {
           "linkedin",
           "contact_number",
         ],
-      },
-
-      {
-        model: Comment,
-        attributes: ["id", "comment_text", "created_at"],
-        include: {
-          model: Post,
-          attributes: ["title"],
-        },
-      },
-      {
-        model: Post,
-        attributes: ["title"],
       },
     ],
   })
