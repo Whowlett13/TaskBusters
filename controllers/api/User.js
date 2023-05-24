@@ -45,6 +45,7 @@ router.get("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+//Create a new User
 router.post("/", (req, res) => {
   User.create({
     username: req.body.username,

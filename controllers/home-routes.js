@@ -1,6 +1,7 @@
 const sequelize = require("../config/connection");
 const { Jobs, User } = require("../models");
 const router = require("express").Router();
+//Display all jobs on homepage
 router.get("/", (req, res) => {
   Jobs.findAll({
     attributes: [
@@ -24,7 +25,7 @@ router.get("/", (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//login redirect
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
@@ -32,11 +33,11 @@ router.get("/login", (req, res) => {
   }
   res.render("login");
 });
-
+//sign up redirect
 router.get("/signup", (req, res) => {
   res.render("signup");
 });
-
+//find a job by id
 router.get("/post/:id", (req, res) => {
   Job_Poster.findOne({
     where: {
@@ -58,6 +59,7 @@ router.get("/post/:id", (req, res) => {
       },
     ],
   })
+  //render jobview handlebars once job has been selected
     .then((PostData) => {
       if (!PostData) {
         res.status(404).json({ message: "No post found with this id" });
