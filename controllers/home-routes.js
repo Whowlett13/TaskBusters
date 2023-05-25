@@ -28,8 +28,7 @@ router.get("/dashboard", (req, res) => {
 
 //render jobview handlebar
 router.get("/singlejob", (req, res) => {
-  res.render("jobview");
-  console.log(response);
+  res.render("/jobview");
 });
 
 //login redirect
@@ -45,6 +44,7 @@ router.get("/login", (req, res) => {
 router.get("/signup", (req, res) => {
   res.render("signup");
 });
+
 //find a job by id
 router.get("/post/:id", (req, res) => {
   Job.findOne({
