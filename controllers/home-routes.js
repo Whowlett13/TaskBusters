@@ -18,9 +18,12 @@ router.get("/", (req, res) => {
 router.get("/newjob", (req, res) => {
   res.render("createjob");
 });
+router.get("/homepage", (req, res) => {
+  res.render("/homepage");
+});
 
 //render jobview handlebar
-router.get("/singlejob", (req, res)=>{
+router.get("/singlejob", (req, res) => {
   res.render("/jobview");
 });
 
@@ -39,7 +42,7 @@ router.get("/signup", (req, res) => {
 });
 //find a job by id
 router.get("/post/:id", (req, res) => {
-  Job_Poster.findOne({
+  Job.findOne({
     where: {
       id: req.params.id,
     },
