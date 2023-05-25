@@ -23,13 +23,7 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: User,
-        attributes: [
-          "id",
-          "first-name",
-          "last_name",
-          // "linkedin",
-          "contact_number",
-        ],
+        attributes: ["id", "first-name", "last_name", "contact_number"],
       },
     ],
   })
@@ -52,13 +46,11 @@ router.post("/", (req, res) => {
     last_name: req.body.last_name,
     email: req.body.email,
     password: req.body.password,
-  });
-  console
-    .log(response)
+  })
     .then((UserData) => {
       req.session.save(() => {
         req.session.user_id = UserData.id;
-        req.session.username = UserData.username;
+        req.session.email = UserData.email;
         req.session.loggedIn = true;
 
         res.json(UserData);
@@ -74,7 +66,7 @@ router.post("/", (req, res) => {
 router.post("/login", (req, res) => {
   User.findOne({
     where: {
-      username: req.body.email,
+      email: req.body.email,
     },
   })
     .then((dbUserData) => {
@@ -90,7 +82,7 @@ router.post("/login", (req, res) => {
       }
       req.session.save(() => {
         req.session.user_id = dbUserData.id;
-        req.session.username = dbUserData.email;
+        req.session.email = dbUserData.email;
         req.session.loggedIn = true;
 
         res.json({ user: dbUserData, message: "You are now logged in!" });
@@ -100,6 +92,17 @@ router.post("/login", (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+//delete a session
+router.post("/logout", (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 });
 
 module.exports = router;

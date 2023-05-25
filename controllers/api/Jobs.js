@@ -3,33 +3,46 @@ const { Jobs } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 //find all job details
-router.get("/", (req, res) => {
-  Jobs.findAll({
-    attributes: [
-      "id",
-      "user_id",
-      "job_title",
-      "job_description",
-      "job_location",
-      "job_date",
-      "hourly_wage",
-      "job_duration",
-    ],
-  })
-    .then((Jobs) => res.json(Jobs.reverse()))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
+router.get("/", async (req, res) => {
+  try {
+    const jobs = await Jobs.findAll({
+      include: [
+        Jobs,
+        {
+          model: user_id,
+          job_title,
+          job_description,
+          job_location,
+          job_date,
+          hourly_wage,
+          job_duration,
+        },
+      ],
     });
+
+    // Jobs.findAll({
+    //   attributes: [
+    //     "id",
+    //     "user_id",
+    //     "job_title",
+    //     "job_description",
+    //     "job_location",
+    //     "job_date",
+    //     "hourly_wage",
+    //     "job_duration",
+    //   ],
+    // })
+    // .then((Jobs) => res.json(Jobs.reverse()))
+    res.status(200).json(jobs);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
-
-
 
 //create a new job
 router.post("/", withAuth, (req, res) => {
   if (req.session) {
     Jobs.create({
-      // job_poster_id: req.body.job_poster_id,
       user_id: req.body.user_id,
       job_title: req.body.job_title,
       job_description: req.body.job_description,
