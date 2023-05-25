@@ -27,7 +27,6 @@ router.get("/:id", (req, res) => {
           "id",
           "first-name",
           "last_name",
-          "linkedin",
           "contact_number",
         ],
       },
