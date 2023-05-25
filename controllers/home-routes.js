@@ -37,7 +37,7 @@ router.get("/login", (req, res) => {
 });
 
 //sign up redirect
-router.get("/signup", (req, res) => {
+router.get("/signUp", (req, res) => {
   res.render("signup");
 });
 
