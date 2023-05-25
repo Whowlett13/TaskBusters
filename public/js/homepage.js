@@ -15,15 +15,15 @@ async function newFormHandler(event) {
     'input[name="job_duration"]'
   ).value;
 
-  const response = await fetch(`/api/User`, {
+  const response = await fetch(`/api/jobs`, {
     method: "POST",
     body: JSON.stringify({
-      job_title,
+      jobTitle,
       job_description,
-      job_location,
-      job_date,
-      hourly_wage,
-      job_duration,
+      jobLocation,
+      jobDate,
+      hourlyWage,
+      jobDuration,
     }),
     headers: {
       "Content-Type": "application/json",
@@ -31,10 +31,10 @@ async function newFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace("/jobview");
+    document.location.replace("/homepage");
   } else {
     alert(response.statusText);
   }
 }
 
-document.querySelector("#jobview").addEventListener("click", newFormHandler);
+document.querySelector("#home").addEventListener("click", newFormHandler);

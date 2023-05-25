@@ -18,12 +18,12 @@ async function newFormHandler(event) {
   const response = await fetch(`/api/jobs`, {
     method: "POST",
     body: JSON.stringify({
-      jobTitle,
+      job_title,
       job_description,
-      jobLocation,
-      jobDate,
-      hourlyWage,
-      jobDuration,
+      job_location,
+      job_date,
+      hourly_wage,
+      job_duration,
     }),
     headers: {
       "Content-Type": "application/json",
@@ -37,6 +37,4 @@ async function newFormHandler(event) {
   }
 }
 
-document
-  .querySelector("#create-job")
-  .addEventListener("submit", newFormHandler);
+document.querySelector("#create-job").addEventListener("click", newFormHandler);
