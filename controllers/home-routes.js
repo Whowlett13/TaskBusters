@@ -24,7 +24,7 @@ router.get("/homepage", (req, res) => {
 
 //render jobview handlebar
 router.get("/singlejob", (req, res) => {
-  res.render("/jobview");
+  res.render("/jobview/:id");
 });
 
 //login redirect
