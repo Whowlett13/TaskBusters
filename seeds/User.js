@@ -3,9 +3,7 @@ const userData = [
   {
     first_name: "himali",
     last_name: "panchal",
-
     contact_number: 34,
-    date_of_birth: 1996 - 12 - 31,
     email: "hi@gmail.com",
     password: "ew78aa11",
   },
