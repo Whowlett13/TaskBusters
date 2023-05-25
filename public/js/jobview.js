@@ -18,12 +18,12 @@ async function newFormHandler(event) {
   const response = await fetch(`/api/User`, {
     method: "POST",
     body: JSON.stringify({
-      job_title,
+      jobTitle,
       job_description,
-      job_location,
-      job_date,
-      hourly_wage,
-      job_duration,
+      jobLocation,
+      jobDate,
+      hourlyWage,
+      jobDuration,
     }),
     headers: {
       "Content-Type": "application/json",

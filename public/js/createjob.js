@@ -31,12 +31,10 @@ async function newFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace("/createjob");
+    document.location.replace("/");
   } else {
     alert(response.statusText);
   }
 }
 
-document
-  .querySelector("#create-job")
-  .addEventListener("click", newFormHandler);
+document.querySelector("#create-job").addEventListener("click", newFormHandler);

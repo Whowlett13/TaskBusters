@@ -42,7 +42,7 @@ router.get("/signup", (req, res) => {
 });
 //find a job by id
 router.get("/post/:id", (req, res) => {
-  Job_Poster.findOne({
+  Job.findOne({
     where: {
       id: req.params.id,
     },
