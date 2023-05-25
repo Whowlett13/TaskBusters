@@ -20,7 +20,7 @@ router.get("/newjob", (req, res) => {
 });
 
 //render jobview handlebar
-router.get("/singlejob", (req, res)=>{
+router.get("/singlejob", (req, res) => {
   res.render("/jobview");
 });
 
@@ -30,13 +30,14 @@ router.get("/login", (req, res) => {
     res.redirect("/");
     return;
   }
-  // res.render("login");
+  res.render("login");
 });
 
 //sign up redirect
 router.get("/signup", (req, res) => {
   res.render("signup");
 });
+
 //find a job by id
 router.get("/post/:id", (req, res) => {
   Job_Poster.findOne({
