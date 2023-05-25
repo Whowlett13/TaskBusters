@@ -1,3 +1,4 @@
+const { response } = require("express");
 const sequelize = require("../config/connection");
 const { Jobs, User } = require("../models");
 const router = require("express").Router();
@@ -22,11 +23,13 @@ router.get("/newjob", (req, res) => {
 //render homepage
 router.get("/dashboard", (req, res) => {
   res.render("homepage");
+  console.log(response);
 });
 
 //render jobview handlebar
 router.get("/singlejob", (req, res) => {
   res.render("jobview");
+  console.log(response);
 });
 
 //login redirect
