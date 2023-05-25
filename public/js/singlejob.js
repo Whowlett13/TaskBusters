@@ -31,12 +31,10 @@ async function newFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace("/createjob");
+    document.location.replace("/jobicon");
   } else {
     alert(response.statusText);
   }
 }
 
-document
-  .querySelector("#create-job") ///formhandler????
-  .addEventListener("submit", newFormHandler);
+document.querySelector("#jobicon").addEventListener("click", newFormHandler);

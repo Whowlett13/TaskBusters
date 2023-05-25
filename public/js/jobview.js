@@ -1,18 +1,18 @@
 async function newFormHandler(event) {
   event.preventDefault();
 
-  const jobTitle = document.querySelector('input[name="job-title"]').value;
+  const jobTitle = document.querySelector('input[name="#job-title"]').value;
   const job_description = document.querySelector(
-    'input[name="job-description"]'
+    'input[name="#job-description"]'
   ).value;
 
   const jobLocation = document.querySelector(
-    'input[name="job-location"]'
+    'input[name="#job-location"]'
   ).value;
-  const jobDate = document.querySelector('input[name="job-date"]').value;
-  const hourlyWage = document.querySelector('input[name="hourly-wage"]').value;
+  const jobDate = document.querySelector('input[name="#job-date"]').value;
+  const hourlyWage = document.querySelector('input[name="#hourly-wage"]').value;
   const jobDuration = document.querySelector(
-    'input[name="job-duration"]'
+    'input[name="#job-duration"]'
   ).value;
 
   const response = await fetch(`/api/User`, {
@@ -37,4 +37,4 @@ async function newFormHandler(event) {
   }
 }
 
-document.querySelector("#jobview").addEventListener("submit", newFormHandler);
+document.querySelector("#jobview").addEventListener("click", newFormHandler);

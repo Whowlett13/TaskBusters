@@ -39,4 +39,4 @@ async function newFormHandler(event) {
 
 document
   .querySelector("#create-job")
-  .addEventListener("submit", newFormHandler);
+  .addEventListener("click", newFormHandler);
