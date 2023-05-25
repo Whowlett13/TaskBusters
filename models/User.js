@@ -28,7 +28,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    
+
     contact_number: {
       type: DataTypes.INTEGER,
       allowNull: true,
