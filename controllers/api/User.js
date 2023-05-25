@@ -27,7 +27,7 @@ router.get("/:id", (req, res) => {
           "id",
           "first-name",
           "last_name",
-          "linkedin",
+          // "linkedin",
           "contact_number",
         ],
       },
@@ -52,8 +52,9 @@ router.post("/", (req, res) => {
     last_name: req.body.last_name,
     email: req.body.email,
     password: req.body.password,
-  })
-
+  });
+  console
+    .log(response)
     .then((UserData) => {
       req.session.save(() => {
         req.session.user_id = UserData.id;

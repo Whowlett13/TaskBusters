@@ -18,13 +18,15 @@ router.get("/", (req, res) => {
 router.get("/newjob", (req, res) => {
   res.render("createjob");
 });
-router.get("/homepage", (req, res) => {
-  res.render("/homepage");
+
+//render homepage
+router.get("/dashboard", (req, res) => {
+  res.render("homepage");
 });
 
 //render jobview handlebar
 router.get("/singlejob", (req, res) => {
-  res.render("/jobview");
+  res.render("jobview");
 });
 
 //login redirect
@@ -33,7 +35,7 @@ router.get("/login", (req, res) => {
     res.redirect("/");
     return;
   }
-  // res.render("login");
+  res.render("login");
 });
 
 //sign up redirect
