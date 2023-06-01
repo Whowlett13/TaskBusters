@@ -23,14 +23,12 @@ router.get("/", (req, res) => {
     });
 });
 
-
-
 //create a new job
 router.post("/", withAuth, (req, res) => {
   if (req.session) {
     Jobs.create({
       // job_poster_id: req.body.job_poster_id,
-      user_id: req.body.user_id,
+      user_id: req.session.user_id,
       job_title: req.body.job_title,
       job_description: req.body.job_description,
       job_location: req.body.job_location,

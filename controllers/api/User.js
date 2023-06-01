@@ -7,12 +7,21 @@ router.get("/", withAuth, (req, res) => {
   User.findAll({
     attributes: { exclude: ["[password"] },
   })
-    .then((dbUserData) => res.json(dbUserData))
+    .then((UserData) => {
+      req.session.save(() => {
+        req.session.user_id = UserData.id;
+        req.session.email = UserData.email;
+        req.session.loggedIn = true;
+
+        res.json(UserData);
+      });
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
+
 //Find a User
 router.get("/:id", (req, res) => {
   User.findOne({

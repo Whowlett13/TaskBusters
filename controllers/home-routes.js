@@ -18,6 +18,7 @@ router.get("/", (req, res) => {
 router.get("/newjob", (req, res) => {
   res.render("createjob");
 });
+//render home page
 router.get("/homepage", (req, res) => {
   res.render("/homepage");
 });
@@ -43,7 +44,7 @@ router.get("/signUp", (req, res) => {
 
 //find a job by id
 router.get("/post/:id", (req, res) => {
-  Job.findOne({
+  Jobs.findOne({
     where: {
       id: req.params.id,
     },
